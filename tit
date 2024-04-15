@@ -1,0 +1,24 @@
+#!/bin/bash
+
+print_help(){
+    echo "Available commands:"
+    echo "    tit init"
+    echo "    tit add"
+    echo "    tit status"
+    echo "    tit commit"
+}
+
+cmd=$1
+tit_init_cmd="/bin/bash tit-init.sh"
+tit_add_cmd="/bin/bash tit-add.sh"
+tit_status_cmd="/bin/bash tit-status.sh"
+tit_commit_cmd="/bin/bash tit-commit.sh"
+shift
+case $cmd in 
+	init) echo $($tit_init_cmd $@) ;;
+	add) echo $($tit_add_cmd $@) ;;
+	status) echo $($tit_status_cmd $@) ;;
+	commit) echo $($tit_commit_cmd $@) ;;
+	*) print_help ;;
+esac
+
